@@ -3,10 +3,16 @@ import 'package:dukkantek/widgets/custom_button.dart';
 import 'package:dukkantek/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 
-class SignupConainter extends StatelessWidget {
+class SignupConainter extends StatefulWidget {
   SignupConainter({Key? key}) : super(key: key);
 
+  @override
+  State<SignupConainter> createState() => _SignupConainterState();
+}
+
+class _SignupConainterState extends State<SignupConainter> {
   final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -77,7 +83,7 @@ class SignupConainter extends StatelessWidget {
                       if (_formKey.currentState!.validate()) {
                          _formKey.currentState!.save();
                           var response =
-                              await LoginProvider.of(context).login(context);
+                              await LoginProvider.of(context).signup(context);
                           /*if (response.runtimeType == LoginResponse) {
                             
                            

@@ -28,8 +28,6 @@ class LoginProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-
-
   Future googleLogin(BuildContext context) async {
     isLoading = true;
     final googleUser = await googleSignIn.signIn();
@@ -49,8 +47,13 @@ class LoginProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-
-  Future<void> signup(BuildContext context) async{
+  Future<void> signup(BuildContext context) async {
     await LoginRepository.singup(signupInfo);
+    notifyListeners();
+    Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(
+            builder: (context) => WelcomeScreen(nameUser: signupInfo['name'])),
+        (route) => false);
   }
 }

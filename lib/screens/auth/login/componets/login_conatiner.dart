@@ -4,10 +4,16 @@ import 'package:dukkantek/widgets/custom_button.dart';
 import 'package:dukkantek/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 
-class LgoinContainer extends StatelessWidget {
+class LgoinContainer extends StatefulWidget {
   LgoinContainer({Key? key}) : super(key: key);
 
+  @override
+  State<LgoinContainer> createState() => _LgoinContainerState();
+}
+
+class _LgoinContainerState extends State<LgoinContainer> {
   final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -46,7 +52,7 @@ class LgoinContainer extends StatelessWidget {
           },
         ),
         SizedBox(
-          height: height * .01,
+          height: height * .04,
         ),
         GestureDetector(
             onTap: () {
@@ -54,6 +60,9 @@ class LgoinContainer extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => SignUpScreen()));
             },
             child: const Text("You don't member SignUp")),
+        SizedBox(
+          height: height * .04,
+        ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8),
           child: GestureDetector(
