@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "835430382562-hhsbesdae575r59k2lkdnv83cge4t82u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dukkantek",
+            "certificate_hash": "3d61ffcb9943729f837b6df2f6edd70b4b215669"
+          }
+        },
+        {
           "client_id": "835430382562-bndna03vlgntjmk4gqi1ddnfhens50on.apps.googleusercontent.com",
           "client_type": 3
         }

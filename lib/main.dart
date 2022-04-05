@@ -23,6 +23,7 @@ class StartPoint extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(scaffoldBackgroundColor: Colors.deepPurple),
       routes: routes,
     );
   }
