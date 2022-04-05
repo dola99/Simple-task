@@ -1,12 +1,13 @@
 import 'package:dukkantek/provider/login_provider.dart';
 import 'package:dukkantek/screens/auth/login/componets/login_conatiner.dart';
+import 'package:dukkantek/screens/auth/regestrition/componets/signup_container.dart';
 import 'package:dukkantek/widgets/custom_button.dart';
 import 'package:dukkantek/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatelessWidget {
-  static const routeName = '/';
-  LoginScreen({Key? key}) : super(key: key);
+class SignUpScreen extends StatelessWidget {
+  static const routeName = '/SignUpScreen';
+  SignUpScreen({Key? key}) : super(key: key);
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -34,7 +35,7 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              LgoinContainer()
+              SignupConainter()
             ],
           )),
     ));

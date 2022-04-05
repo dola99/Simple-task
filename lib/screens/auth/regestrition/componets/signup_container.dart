@@ -1,11 +1,10 @@
 import 'package:dukkantek/provider/login_provider.dart';
-import 'package:dukkantek/screens/auth/regestrition/regestre_screen.dart';
 import 'package:dukkantek/widgets/custom_button.dart';
 import 'package:dukkantek/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 
-class LgoinContainer extends StatelessWidget {
-  LgoinContainer({Key? key}) : super(key: key);
+class SignupConainter extends StatelessWidget {
+  SignupConainter({Key? key}) : super(key: key);
 
   final _formKey = GlobalKey<FormState>();
   @override
@@ -18,7 +17,22 @@ class LgoinContainer extends StatelessWidget {
         CustomTextFormField(
           hintText: 'Email Or PhoneNumber',
           onSaved: (value) {
-            loginProvider.loginInfo['username'] = value;
+            loginProvider.signupInfo['username'] = value;
+          },
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return "The field Can't be Empty";
+            } else {
+              return null;
+            }
+          },
+        ),
+        SizedBox(
+          height: height * .01,
+        ), CustomTextFormField(
+          hintText: 'Name',
+          onSaved: (value) {
+            loginProvider.signupInfo['name'] = value;
           },
           validator: (value) {
             if (value == null || value.isEmpty) {
@@ -42,18 +56,12 @@ class LgoinContainer extends StatelessWidget {
             return null;
           },
           onSaved: (value) {
-            loginProvider.loginInfo['password'] = value;
+            loginProvider.signupInfo['password'] = value;
           },
         ),
         SizedBox(
           height: height * .01,
         ),
-        GestureDetector(
-            onTap: () {
-              Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => SignUpScreen()));
-            },
-            child: const Text("You don't member SignUp")),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8),
           child: GestureDetector(
@@ -67,10 +75,10 @@ class LgoinContainer extends StatelessWidget {
                     width: double.infinity,
                     onPressed: () async {
                       if (_formKey.currentState!.validate()) {
-                        /*  _formKey.currentState!.save();
+                         _formKey.currentState!.save();
                           var response =
                               await LoginProvider.of(context).login(context);
-                          if (response.runtimeType == LoginResponse) {
+                          /*if (response.runtimeType == LoginResponse) {
                             
                            
                           
